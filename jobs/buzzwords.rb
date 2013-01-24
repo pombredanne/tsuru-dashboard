@@ -1,3 +1,7 @@
+# Copyright (c) 2013 Shopify
+# Use of this source code is governed by a MIT-style license that can be found
+# in the LICENSE file.
+
 buzzwords = ['Paradigm shift', 'Leverage', 'Pivoting', 'Turn-key', 'Streamlininess', 'Exit strategy', 'Synergy', 'Enterprise', 'Web 2.0'] 
 buzzword_counts = Hash.new({ value: 0 })
 
