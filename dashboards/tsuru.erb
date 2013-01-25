@@ -1,0 +1,20 @@
+<%# Copyright (c) 2013 Tsuru authors %>
+<%# Use of this source code is governed by a BSD-like license that can be found %>
+<%# in the LICENSE file. %>
+
+<% content_for(:title) { "Tsuru dashboard" } %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+      <div data-id="synergy" data-view="Meter" data-title="app's resilience" data-min="0" data-max="100"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+      <div data-id="synergy" data-view="Meter" data-title="tsuru's resilience" data-min="0" data-max="100"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+      <div data-id="issues" data-view="List" data-unordered="false" data-title="Issues per project" data-moreinfo=""></div>
+    </li>
+  </ul>
+</div>
