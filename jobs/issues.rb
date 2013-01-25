@@ -29,9 +29,8 @@ projects = [
   "zookeeper-centos-6",
 ]
 
-issues_count = Hash.new({ value: 0 })
-
-# SCHEDULER.every "10m" do
+def items(projects)
+  issues_count = Hash.new({ value: 0 })
   http = Net::HTTP.new "api.github.com", 443
   http.use_ssl = true
   http.verify_mode = OpenSSL::SSL::VERIFY_PEER
@@ -42,5 +41,10 @@ issues_count = Hash.new({ value: 0 })
       issues_count[repo["name"]] = {label: repo["name"], value: repo["open_issues"].to_i}
     end
   end
-  send_event("issues", { items: issues_count.values.sort_by {|v| -v[:value]} })
-# end
+  issues_count.values.sort_by {|v| -v[:value]}
+end
+
+send_event("issues", { items: items(projects) })
+SCHEDULER.every "10m" do
+  send_event("issues", { items: items(projects) })
+end
