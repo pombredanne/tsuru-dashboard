@@ -6,8 +6,7 @@ require "json"
 require "net/http"
 
 milestones = [
-  {number: 13, id: "app-resilience"},
-  {number: 14, id: "tsuru-resilience"},
+  {number: 17, id: "public-cloud"},
 ]
 
 def fetch(milestones)
