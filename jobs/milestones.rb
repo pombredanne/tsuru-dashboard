@@ -17,6 +17,9 @@ def fetch(milestones)
     response = http.get "/repos/globocom/tsuru/milestones/#{m[:number]}"
     milestone = JSON.parse response.body
     closed = milestone["closed_issues"]
+    if !closed || !milestone["open_issues"]
+      return
+    end
     total = closed + milestone["open_issues"]
     percent = 100.0 * closed / total
     send_event m[:id], { value: percent.ceil }
