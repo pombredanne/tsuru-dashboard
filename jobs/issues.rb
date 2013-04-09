@@ -46,11 +46,12 @@ def items(projects)
   http.verify_mode = OpenSSL::SSL::VERIFY_PEER
   response = http.get "/orgs/globocom/repos?per_page=100"
   repositories = JSON.parse response.body
+  if repositories["message"] != nil
+    puts repositories["message"]
+    return
+  end
   repositories = repositories.each do |repo|
     if projects.find {|p| p == repo["name"]} != nil
-      if !repo["open_issues"]
-        return
-      end
       count = repo["open_issues"].to_i
       if count > 0
         issues_count[repo["name"]] = {label: repo["name"], value: count}
