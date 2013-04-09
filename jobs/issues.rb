@@ -46,8 +46,7 @@ def items(projects)
   http.verify_mode = OpenSSL::SSL::VERIFY_PEER
   response = http.get "/orgs/globocom/repos?per_page=100"
   repositories = JSON.parse response.body
-  if repositories["message"] != nil
-    puts repositories["message"]
+  if repositories.kind_of? Hash and repositories["message"] != nil
     return
   end
   repositories = repositories.each do |repo|
