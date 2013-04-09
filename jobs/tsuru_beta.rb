@@ -30,6 +30,6 @@ def fetch
 end
 
 fetch
-SCHEDULER.every '3m', :first_in => 0 do
+SCHEDULER.every '3m' do
   fetch
 end
