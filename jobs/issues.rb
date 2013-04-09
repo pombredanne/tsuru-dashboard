@@ -48,6 +48,9 @@ def items(projects)
   repositories = JSON.parse response.body
   repositories = repositories.each do |repo|
     if projects.find {|p| p == repo["name"]} != nil
+      if !repo["open_issues"]
+        return
+      end
       count = repo["open_issues"].to_i
       if count > 0
         issues_count[repo["name"]] = {label: repo["name"], value: count}
