@@ -2,8 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can be found
 # in the LICENSE file.
 
-require "mongo"
-include Mongo
+require "./jobs/conn.rb"
 
 def fetch
   widget_name = "tsuru-beta-countries"
