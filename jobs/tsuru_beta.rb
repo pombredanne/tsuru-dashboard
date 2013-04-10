@@ -6,13 +6,13 @@ require "./jobs/conn.rb"
 
 include Mongo
 
-def fetch
+def get_data
   widget_name = "tsuru-beta"
   db = connect()
   send_event widget_name, { current: db["users"].count }
 end
 
-fetch
+get_data
 SCHEDULER.every '3m' do
-  fetch
+  get_data
 end
