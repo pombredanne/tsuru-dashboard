@@ -4,7 +4,7 @@
 
 require "./jobs/conn.rb"
 
-def fetch
+def get_users_per_country
   widget_name = "tsuru-beta-countries"
   db = connect()
   items = []
@@ -16,7 +16,7 @@ def fetch
   send_event widget_name, { items: items }
 end
 
-fetch
+get_users_per_country
 SCHEDULER.every '3m' do
-  fetch
+  get_users_per_country
 end
