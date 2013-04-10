@@ -10,7 +10,7 @@ def get_users_per_country
   items = []
   countries = db["survey"].distinct("country")
   countries.each do |country|
-    amount = db["survey"].count({country: country})
+    amount = db["survey"].find({country: country}).count()
     items.push({label: country, value: amount})
   end
   send_event widget_name, { items: items }
