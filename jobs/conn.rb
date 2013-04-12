@@ -11,9 +11,5 @@ def connect
   password = ENV["MONGO_PASSWORD"]
   database_name = ENV["MONGO_DATABASE_NAME"]
   host, port = uri[0], uri[1].to_i
-  db = MongoClient.new(host, port).db(database_name)
-  # if user && password
-  #   db.authenticate(user, password)
-  # end
-  db
+  MongoClient.new(host, port).db(database_name)
 end
