@@ -13,7 +13,7 @@ def get_users_per_country
     amount = db["survey"].find({country: country}).count()
     items.push({label: country, value: amount})
   end
-  send_event widget_name, { items: items }
+  send_event widget_name, { items: items.sort_by {|v| -v[:value]} }
 end
 
 get_users_per_country
