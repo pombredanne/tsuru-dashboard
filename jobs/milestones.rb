@@ -6,7 +6,8 @@ require "json"
 require "net/http"
 
 milestones = [
-  {number: 17, id: "public-cloud"},
+  {number: 17, project: "tsuru", id: "public-cloud"},
+  {number: 1, project: "abyss", id: "abyss-public-cloud"},
 ]
 
 def fetch(milestones)
@@ -14,7 +15,7 @@ def fetch(milestones)
   http.use_ssl = true
   http.verify_mode = OpenSSL::SSL::VERIFY_PEER
   milestones.each do |m|
-    response = http.get "/repos/globocom/tsuru/milestones/#{m[:number]}"
+    response = http.get "/repos/globocom/#{m[:project]}/milestones/#{m[:number]}"
     milestone = JSON.parse response.body
     closed = milestone["closed_issues"]
     if !closed || !milestone["open_issues"]
