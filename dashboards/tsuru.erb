@@ -5,8 +5,11 @@
 <% content_for(:title) { "Tsuru dashboard" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="public-cloud" data-view="Meter" data-title="Public cloud" data-min="0" data-max="100"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="vpc-ok" data-view="Meter" data-title="vpc ok" data-min="0" data-max="100"></div>
     </li>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
       <div data-id="tsuru-beta-countries" data-view="List" data-title="Surveys answered per country"></div>
