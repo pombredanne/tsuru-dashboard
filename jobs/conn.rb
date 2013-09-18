@@ -4,7 +4,7 @@ include Mongo
 
 def connect
   if !ENV["MONGO_URI"] || !ENV["MONGO_DATABASE_NAME"]
-    throw "You must configure the mongodb variables in order to start the dashboard."
+   throw "You must configure the mongodb variables in order to start the dashboard."
   end
   uri = ENV["MONGO_URI"].split(":")
   user = ENV["MONGO_USER"]

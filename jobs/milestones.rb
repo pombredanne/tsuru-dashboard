@@ -8,6 +8,9 @@ require "net/http"
 milestones = [
   {number: 18, project: "tsuru", id: "public-cloud"},
   {number: 19, project: "tsuru", id: "vpc-ok"},
+  {number: 15, project: "tsuru", id: "services2"},
+  {number: 20, project: "tsuru", id: "ops"},
+  {number: 21, project: "tsuru", id: "bugfix"},
 ]
 
 def fetch(milestones)
